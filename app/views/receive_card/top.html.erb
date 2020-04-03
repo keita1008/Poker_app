@@ -1,0 +1,15 @@
+
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <h1>Check a Poker Hand</h1>
+      </div>
+      <div id="contents">
+        <%= form_tag("/check", method: "get") do %>
+        <input type="text" name="cards" >
+        <input type="submit" name="commit" value="Check">
+        <% end %>
+      </div>
+        <%= @result %>
+    </div>
+  </body>
