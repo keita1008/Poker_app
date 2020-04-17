@@ -13,3 +13,64 @@
  *= require_tree .
  *= require_self
  */
+
+.header {
+    margin-top: 60px;
+    font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+    font-size: 20px;
+    text-align: center;
+}
+
+.far {
+    margin: 0px 10px 0px 10px;
+}
+
+.contents {
+    text-align: center;
+    display: block;
+}
+
+.result {
+    line-height: 100px;
+    text-align: center;
+    font-size: 2.4rem;
+}
+
+.error {
+    width: 650px;
+    margin: 0 auto;
+    background-color: crimson;
+}
+
+.footer {
+    margin-top: 30px;
+    text-align: center;
+}
+
+input#input_field {
+    margin-top: 48px;
+    font-size: 1.8rem;
+    width: 300px;
+    height: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input#submit_button {
+    background-color: darkgreen;
+    color: #FFF;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 24px;
+    padding: 8px 16px;
+    border: none;
+    width: 240px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
