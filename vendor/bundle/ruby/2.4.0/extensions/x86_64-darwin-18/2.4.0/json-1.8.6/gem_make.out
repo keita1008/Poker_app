@@ -1,0 +1,13 @@
+current directory: /Users/k.karei/RubymineProjects/Poker_app/vendor/bundle/ruby/2.4.0/gems/json-1.8.6/ext/json
+/Users/k.karei/.rbenv/versions/2.4.7/bin/ruby -r ./siteconf20200421-32218-1n0a9fp.rb extconf.rb
+creating Makefile
+
+current directory: /Users/k.karei/RubymineProjects/Poker_app/vendor/bundle/ruby/2.4.0/gems/json-1.8.6/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/k.karei/RubymineProjects/Poker_app/vendor/bundle/ruby/2.4.0/gems/json-1.8.6/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/k.karei/RubymineProjects/Poker_app/vendor/bundle/ruby/2.4.0/gems/json-1.8.6/ext/json
+make "DESTDIR=" install

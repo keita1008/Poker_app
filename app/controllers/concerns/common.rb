@@ -10,9 +10,11 @@ module Common
   TWO_PAIR = "ツーペア"
   ONE_PAIR = "ワンペア"
   HIGH_CARD = "ハイカード"
-  ERROR_MESSAGE1 = "5枚のカードを入力してください"
-  ERROR_MESSAGE2 = "指定された文字を入力してください"
-  ERROR_MESSAGE3 = "カードが重複しています"
+  ERROR_MESSAGE1 = "<br>5つのカード指定文字を半角スペース区切りで入力してください。"
+  ERROR_MESSAGE2 = "カードが重複しています"
+  ERROR_MESSAGE5 = "<br>(例：S1 H3 D9 C13 S11 ）"
+  ERROR_MESSAGE3 = "全角スペースが含まれています。<br>5つのカード指定文字を半角スペース区切りで入力してください。" + ERROR_MESSAGE5
+  ERROR_MESSAGE4 = "<br>半角英字大文字のスート（S,H,D,C）と半角数字（1〜13）の組み合わせでカードを指定してください。"
 
   def split_card(cards,suits,numbers)
     cards.each do |card|
@@ -27,13 +29,21 @@ module Common
     cards.count != 5 ? true : false
   end
 
-  def incorrect_cards?(cards)
-    cards.each do |card|
-      if card.match(/\A([SHDC])([1][0-3]|[1-9])$/) == nil
-        return true
+  def full_width_space?(card)
+    card.match(/[\u3000]/) ? true : false
+  end
+
+  def incorrect_cards?(cards, incorrect_card_messages)
+
+    cards.each_with_index do |card, i|
+      if !(card.match(/\A([SHDC])([1][0-3]|[1-9])\z/))
+      msg = "#{i+1}番目のカード指定文字が不正です。(#{card})"
+      incorrect_card_messages << msg
       end
     end
-    return false
+
+    incorrect_card_messages.present? ? true : false
+
   end
 
   def duplicate_cards?(cards)
@@ -45,7 +55,7 @@ module Common
   end
 
   def flash?(suits)
-    suits.count(suits[0]) == 5
+    suits.uniq.count == 1
   end
 
   def straight_flash?(suits,numbers)
@@ -64,15 +74,15 @@ module Common
     numbers.uniq.count == 3
   end
 
-  def three_of_a_kind(numbers)
+  def three_of_a_kind?(numbers)
     numbers.count(numbers[0]) == 3 || numbers.count(numbers[2]) == 3 || numbers.count(numbers[4]) == 3
   end
 
-  def full_house(numbers)
+  def full_house?(numbers)
     numbers.uniq.count == 2
   end
 
-  def four_of_a_kind(numbers)
+  def four_of_a_kind?(numbers)
     numbers.uniq.count == 2 && numbers.count(numbers[0]) == 4 || numbers.count(numbers[4]) == 4
   end
 

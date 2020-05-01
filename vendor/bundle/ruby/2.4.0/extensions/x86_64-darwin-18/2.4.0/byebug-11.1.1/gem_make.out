@@ -1,0 +1,19 @@
+current directory: /Users/k.karei/RubymineProjects/Poker_app/vendor/bundle/ruby/2.4.0/gems/byebug-11.1.1/ext/byebug
+/Users/k.karei/.rbenv/versions/2.4.7/bin/ruby -r ./siteconf20200421-32218-1q0muov.rb extconf.rb
+creating Makefile
+
+current directory: /Users/k.karei/RubymineProjects/Poker_app/vendor/bundle/ruby/2.4.0/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/k.karei/RubymineProjects/Poker_app/vendor/bundle/ruby/2.4.0/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/k.karei/RubymineProjects/Poker_app/vendor/bundle/ruby/2.4.0/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20200421-32218-1ujbmct/byebug

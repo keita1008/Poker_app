@@ -31,15 +31,19 @@
 }
 
 .result {
-    line-height: 100px;
     text-align: center;
-    font-size: 2.4rem;
 }
 
 .error {
+    font-size: 20px;
+    line-height: 50px;
     width: 650px;
     margin: 0 auto;
-    background-color: crimson;
+    background-color: rgba(220,20,60,0.9);
+}
+
+.yaku {
+    font-size: 2.4rem;
 }
 
 .footer {
@@ -60,7 +64,7 @@ input#input_field {
 }
 
 input#submit_button {
-    background-color: darkgreen;
+    background-color: #2E2F30;
     color: #FFF;
     margin-top: 20px;
     margin-bottom: 30px;
@@ -73,4 +77,17 @@ input#submit_button {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 0px 5px grey;
+    cursor: pointer;
+}
+
+input#submit_button:hover {
+    opacity: 0.8;
+}
+
+input#submit_button:active {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    border-bottom: none;
 }

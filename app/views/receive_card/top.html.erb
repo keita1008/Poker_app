@@ -1,20 +1,20 @@
-
   <body>
     <div id="wrapper">
       <div class="header">
-        <h1><i class="far fa-hand-paper"></i>Check a Poker Hand<i class="far fa-hand-paper"></i></h1>
+        <h1><i class="far fa-hand-point-right"></i>Check a Poker Hand<i class="far fa-hand-point-left"></i></h1>
       </div>
 
       <div class="contents">
         <%= form_tag("/check", method: "get") do %>
           <input id="input_field" type="text" name="cards" value="<%= @card %>">
-          <div class="example">
-            <p>（例：H1 S2 D3 C4 H5)</p>
-          </div>
           <input id="submit_button" type="submit" name="commit" value="Check">
         <% end %>
         <div class="result">
-          <div class="error"><%= flash[:notice] %></div>
+          <div class="error">
+            <% if flash[:notice] %>
+            <p><%= flash[:notice].html_safe %></p>
+            <% end %>
+          </div>
           <div class="yaku"><%= @result %></div>
         </div>
       </div>

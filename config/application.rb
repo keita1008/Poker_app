@@ -24,5 +24,6 @@ module PokerApp
     config.active_record.raise_in_transactional_callbacks = true
     config.paths.add File.join('app', 'apis'), glob: File.join('**', '*.rb')
     config.autoload_paths += Dir[Rails.root.join('app', 'apis', '*')]
+    config.web_console.development_only = false
   end
 end
