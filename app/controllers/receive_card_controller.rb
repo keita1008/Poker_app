@@ -18,7 +18,7 @@ class ReceiveCardController < ApplicationController
     end
 
     if not_five_cards?(@cards)
-      flash.now[:notice] = "#{@cards.count}つのカードが入力されています。" + ERROR_MESSAGE1 + ERROR_MESSAGE5
+      flash.now[:notice] = "#{@cards.count}枚のカードが入力されています。" + "<br>#{ERROR_MESSAGE1}" + ERROR_MESSAGE5
       render("receive_card/top") and return
     end
 
@@ -77,6 +77,9 @@ class ReceiveCardController < ApplicationController
       @result = HIGH_CARD
       render("receive_card/top") and return
     end
+
+    flash.now[:notice] = ERROR_MESSAGE6
+    render("receive_card/top") and return
 
   end
 end

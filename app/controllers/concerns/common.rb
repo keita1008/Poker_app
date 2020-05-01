@@ -10,11 +10,12 @@ module Common
   TWO_PAIR = "ツーペア"
   ONE_PAIR = "ワンペア"
   HIGH_CARD = "ハイカード"
-  ERROR_MESSAGE1 = "<br>5つのカード指定文字を半角スペース区切りで入力してください。"
+  ERROR_MESSAGE1 = "5つのカード指定文字を半角スペース区切りで入力してください。"
   ERROR_MESSAGE2 = "カードが重複しています"
   ERROR_MESSAGE5 = "<br>(例：S1 H3 D9 C13 S11 ）"
   ERROR_MESSAGE3 = "全角スペースが含まれています。<br>5つのカード指定文字を半角スペース区切りで入力してください。" + ERROR_MESSAGE5
   ERROR_MESSAGE4 = "<br>半角英字大文字のスート（S,H,D,C）と半角数字（1〜13）の組み合わせでカードを指定してください。"
+  ERROR_MESSAGE6 = "不正な入力です" + "<br>#{ERROR_MESSAGE1}" + ERROR_MESSAGE5
 
   def split_card(cards,suits,numbers)
     cards.each do |card|

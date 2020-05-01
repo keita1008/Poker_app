@@ -8,19 +8,15 @@ module API
 
       resource :poker do
         version 'ver1'
+        content_type :json, "application/json"
         format :json
-        # GET /api/ver1/poker
-        rescue_from :all do |e|
-          error!("rescued from #{e.class.name}")
+        params do
+          requires :cards, type: Array
         end
-        rescue_from Encoding::UndefinedConversionError, Grape::Exceptions::InvalidMessageBody do |e|
-          error!("rescued from #{e.class.name}")# エラーハンドリング処理
-        end
-
-        desc 'ポーカーの役を返す'
-        # prefix 'poker/'
+        # rescue_from :all do |e|
+        #   error!("rescued from #{e.class.name}")
+        # end
         post '/' do
-
           results = []
           errors = []
           @several_cards = params[:cards]
@@ -143,11 +139,10 @@ module API
             }
           end
 
-
         end
        end
      end
    end
- end
+end
 
 

@@ -872,30 +872,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="rabl (vbundled(0.14.2)) [path][gem]" type="rubylib">
-        <properties>
-          <option name="version" value="4" />
-        </properties>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/rabl-0.14.2/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/rabl-0.14.2/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/rabl-0.14.2/examples" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/rabl-0.14.2/fixtures" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/rabl-0.14.2/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/rabl-0.14.2/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/rabl-0.14.2/examples" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/rabl-0.14.2/fixtures" />
-        </SOURCES>
-        <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/rabl-0.14.2/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/rabl-0.14.2/examples" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/rabl-0.14.2/fixtures" />
-        </excluded>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="rack (vbundled(1.6.13)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />

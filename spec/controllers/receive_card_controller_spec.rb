@@ -18,7 +18,7 @@ RSpec.describe ReceiveCardController, type: :controller do
           post :check, params.merge(cards: "H1 H2 H3 H4")
         end
         it "エラーメッセージが返ってきているか" do
-          expect(flash[:notice]).to eq "4つのカードが入力されています。" + Common::ERROR_MESSAGE1 + Common::ERROR_MESSAGE5
+          expect(flash[:notice]).to eq "4枚のカードが入力されています。" + "<br>#{ERROR_MESSAGE1}" + Common::ERROR_MESSAGE5
         end
         it_behaves_like "処理が終了しているか"
       end
