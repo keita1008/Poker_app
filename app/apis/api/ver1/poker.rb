@@ -13,9 +13,6 @@ module API
         params do
           requires :cards, type: Array
         end
-        # rescue_from :all do |e|
-        #   error!("rescued from #{e.class.name}")
-        # end
         post '/' do
           results = []
           errors = []
@@ -26,19 +23,19 @@ module API
             numbers = []
             split_card(@card,suits,numbers)
 
-            if not_five_cards?(@card)
-              @result = Common::ERROR_MESSAGE1
-              @card = @card.join(" ")
-              errors << {card: @card, msg: @result}
-              next
-            end
-
             incorrect_card_messages = []
             if incorrect_cards?(@card, incorrect_card_messages)
               @card = @card.join(" ")
               incorrect_card_messages.each do |incorrect_card_message|
                 errors << {card: @card, msg: incorrect_card_message}
               end
+              next
+            end
+
+            if not_five_cards?(@card)
+              @result = Common::ERROR_MESSAGE1
+              @card = @card.join(" ")
+              errors << {card: @card, msg: @result}
               next
             end
 
@@ -49,64 +46,8 @@ module API
               next
             end
 
-            if straight_flash?(suits,numbers)
-              @result = Common::STRAIGHT_FLASH
-              @card = @card.join(" ")
-              results << {card: @card, hand: @result, best: Score(@result)}
-              next
-            end
-
-            if flash?(suits)
-              @result = Common::FLASH
-              @card = @card.join(" ")
-              results << {card: @card, hand: @result, best: Score(@result)}
-              next
-            end
-
-            if straight?(numbers)
-              @result = Common::STRAIGHT
-              @card = @card.join(" ")
-              results << {card: @card, hand: @result, best: Score(@result)}
-              next
-            end
-
-            if high_card?(numbers)
-              @result = Common::HIGH_CARD
-              @card = @card.join(" ")
-              results << {card: @card, hand: @result, best: Score(@result)}
-              next
-            end
-
-            if one_pair?(numbers)
-              @result = Common::ONE_PAIR
-              @card = @card.join(" ")
-              results << {card: @card, hand: @result, best: Score(@result)}
-              next
-            end
-
-            if four_of_a_kind?(numbers)
-              @result = Common::FOUR_OF_A_KIND
-              @card = @card.join(" ")
-              results << {card: @card, hand: @result, best: Score(@result)}
-              next
-            end
-
-            if full_house?(numbers)
-              @result = Common::FULL_HOUSE
-              @card = @card.join(" ")
-              results << {card: @card, hand: @result, best: Score(@result)}
-              next
-            end
-
-            if three_of_a_kind?(numbers)
-              @result = Common::THREE_OF_A_KIND
-              @card = @card.join(" ")
-              results << {card: @card, hand: @result, best: Score(@result)}
-              next
-            end
-
-            if two_pair?(numbers)
-              @result = Common::TWO_PAIR
+            if judge_hand(suits,numbers).present?
+              @result = judge_hand(suits,numbers)
               @card = @card.join(" ")
               results << {card: @card, hand: @result, best: Score(@result)}
               next
@@ -114,15 +55,7 @@ module API
 
           end
 
-          temp_results = results.map{|hash| hash[:best]}
-          strongest_num = temp_results.min
-          results.each do |result|
-            if result[:best] == strongest_num
-              result[:best] = true
-            else
-              result[:best] = false
-            end
-          end
+          strongest_judge(results)
 
           if results.present? == true && errors.present? == true
             {
