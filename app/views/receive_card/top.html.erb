@@ -6,7 +6,7 @@
 
       <div class="contents">
         <%= form_tag("/check", method: "get") do %>
-          <input id="input_field" type="text" name="cards" value="<%= @card %>">
+          <input id="input_field" type="text" name="cards" value="<%= @card %>" placeholder="S1 H3 D9 C13 S11">
           <input id="submit_button" type="submit" name="commit" value="Check">
         <% end %>
         <div class="result">
